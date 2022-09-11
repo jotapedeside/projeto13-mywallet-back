@@ -1,6 +1,7 @@
 {
   "name": "projeto13-mywallet-back",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,5 +9,13 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.2",
+    "joi": "^17.6.0",
+    "mongodb": "^4.9.1",
+    "string-strip-html": "^11.6.4"
+  }
 }
