@@ -3,17 +3,19 @@ import { db } from '../mongo.js';
 
 const postDeposit = async (req, res, next) => {
   const { user } = res.locals;
-  let { amount } = res.locals;
+  let { transaction } = res.locals;
+  console.log(res.locals);
+  console.log({transaction});
 
-  amount = {
-    ...amount,
+  transaction = {
+    ...transaction,
     date: Date.now(),
     day: dayjs().format('DD/MM'),
     userId: user.userId
   }
   try {
-    await db.collection('funds').insertOne(amount);
-    const sendAmount = await db.collection('funds').findOne(amount);
+    await db.collection('funds').insertOne(transaction);
+    const sendAmount = await db.collection('funds').findOne(transaction);
     res.status(200).send(sendAmount);
   } catch (error) {
     res.status(500);

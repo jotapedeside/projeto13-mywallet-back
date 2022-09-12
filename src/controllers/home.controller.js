@@ -6,7 +6,7 @@ const getHome = async (req, res) => {
 
   try {
     const data = await db.collection('funds').find({userId: userId}).toArray();
-    res.status(401).json({ status: 200, message: data });
+    res.status(200).json({ status: 200, message: data });
   } catch (error) {
     res.status(500);
   }
