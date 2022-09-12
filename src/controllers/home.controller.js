@@ -1,13 +1,12 @@
-import { ObjectId } from "mongodb";
-
 import { db } from "../mongo.js";
 
 const getHome = async (req, res) => {
-  const {user} = res.locals;
+  const {userId} = res.locals.user;
+  let test = {userId}
 
   try {
-    const data = await db.collection('funds').find({userId: user.userId}).toArray();
-    res.send([user, data])
+    const data = await db.collection('funds').find({userId: userId}).toArray();
+    res.status(401).json({ status: 200, message: data });
   } catch (error) {
     res.status(500);
   }
