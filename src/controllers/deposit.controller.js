@@ -4,8 +4,6 @@ import { db } from '../mongo.js';
 const postDeposit = async (req, res, next) => {
   const { user } = res.locals;
   let { transaction } = res.locals;
-  console.log(res.locals);
-  console.log({transaction});
 
   transaction = {
     ...transaction,
